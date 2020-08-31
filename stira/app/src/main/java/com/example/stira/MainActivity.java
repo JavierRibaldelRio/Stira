@@ -28,24 +28,21 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("archivoSP", contexto.MODE_PRIVATE);
 
-        ultimosDatos = getIntent().getIntArrayExtra("ultimosIntroducidos");
-
         getUI();
 
         activarEscuchadores();
 
 
-
         if (getIntent().getIntArrayExtra("ultimosIntroducidos") == null) {
 
+            ultimaVez.setVisibility(View.GONE);
 
+        }
 
+        else{
 
-        } else {
+            guardarUltimosValores(getIntent().getIntArrayExtra("ultimosIntroducidos"));
 
-                ultimosDatos = getIntent().getIntArrayExtra("ultimosIntroducidos");
-
-                guardarUltimosValores(ultimosDatos);
         }
 
 
