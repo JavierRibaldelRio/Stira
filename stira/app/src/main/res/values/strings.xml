@@ -1,0 +1,29 @@
+<resources>
+
+    <string name="app_name">Stira!</string>
+
+    <string name="ronda"> Ronda</string>
+
+    <string name="ejercicio">Ejercicio: </string>
+
+    <string name="descanso">Descanso: </string>
+
+    <string name="temporizador">Reloj</string>
+
+    <string name="registro">Registro</string>
+
+    <string name="Asignar">Asignar</string>
+
+    <string name="repeticiones">Inserte el \nnumero de\n repeticiones</string>
+
+    <string name="ejer">Tiempo</string>
+
+    <string name="desc">Tiempo del\ndescanso </string>
+
+    <string name="tiempoFin">El tiempo se ha acabado.</string>
+
+    <string name="inserteValor">Inserte un valor.</string>
+
+    <string name="ultimo">Ultima Vez</string>
+
+</resources>

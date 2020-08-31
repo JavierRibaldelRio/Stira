@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/ronda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+
+        android:layout_weight="3"
+        android:orientation="horizontal"
+
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/ejercicio"
+
+
+            android:textAlignment="textEnd"
+
+            android:textColor="@color/rojo"
+
+            android:textSize="40sp"></TextView>
+
+        <TextView
+            android:id="@+id/tiempo"
+            android:layout_width="240dp"
+
+
+            android:layout_height="wrap_content"
+
+
+            android:text="0"
+
+
+            android:textColor="@color/blanco"
+
+            android:textSize="50sp" />
+
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+
+        android:src="@drawable/retrocederblanco"
+
+        android:scaleType="center"
+
+        android:id="@+id/botonRetroceder"
+
+        android:layout_gravity="center"
+
+        android:background="@color/naranja"
+
+        android:layout_weight="3">
+
+    </ImageButton>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="3"
+
+        android:orientation="horizontal"
+
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/descanso"
+
+            android:textColor="@color/verde"
+
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/tiempoDescanso"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+
+            android:text="0"
+
+            android:textColor="@color/blanco"
+
+
+            android:textSize="50sp"></TextView>
+    </LinearLayout>
+
+
+</LinearLayout>

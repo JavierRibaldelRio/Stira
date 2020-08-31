@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.stira">
+
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icono"
+        android:label="@string/app_name"
+        android:debuggable="false"
+        android:roundIcon="@mipmap/icono_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="HardcodedDebugMode">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".Contador" android:screenOrientation="portrait">
+
+            <!--Para hacer que la fecha vuelva -->
+
+            <meta-data
+                android:name="android.suport.PARENT_ACTIVITY"
+
+                android:value=".MainActivity" />
+
+
+        </activity>
+
+        <activity
+            android:name=".IntroducirDatosTemporizador"
+            android:screenOrientation="portrait" />
+
+
+
+
+    </application>
+
+</manifest>
