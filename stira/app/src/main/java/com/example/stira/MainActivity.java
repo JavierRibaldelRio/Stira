@@ -1,15 +1,12 @@
 package com.example.stira;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,25 +23,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Archivo de los datos de guardado
         SharedPreferences sharedPreferences = getSharedPreferences("archivoSP", contexto.MODE_PRIVATE);
 
+        //Asignar los elementos de la vista a las variables
         getUI();
 
+        //Hacer que los botones funcionen
         activarEscuchadores();
 
 
-        if (getIntent().getIntArrayExtra("ultimosIntroducidos") == null) {
+        if (getIntent().getIntArrayExtra("ultimosIntroducidos") == null ) { //Comprobar si  hay datos de una ultima vez
 
+
+            //ocultar el boton de la ultima vez
             ultimaVez.setVisibility(View.GONE);
 
         }
 
         else{
 
+            //Guardar los valores
             guardarUltimosValores(getIntent().getIntArrayExtra("ultimosIntroducidos"));
 
         }
-
 
     }
 
@@ -60,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
 
         int[] ultimos = new int[3];
 
-        SharedPreferences sp = getPreferences(contexto.MODE_PRIVATE);
+        SharedPreferences sp = getPreferences(contexto.MODE_PRIVATE); //variable que almacena el archivo
 
-        ultimos[0] = sp.getInt("rondas", -1);
+        ultimos[0] = sp.getInt("rondas", -1);   //sacar valores
 
         ultimos[1] = sp.getInt("segundos", -1);
 
@@ -94,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(view.getContext(), Contador.class);
 
-                intent.putExtra("p_valores", sacarUltimosDatos());
+                intent.putExtra("p_valores", sacarUltimosDatos()); // enviar Array
 
                 startActivity(intent);
 

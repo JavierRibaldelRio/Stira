@@ -15,7 +15,7 @@ public class IntroducirDatosTemporizador extends AppCompatActivity {
 
     private String[] preguntas = new String[2]; //Aquí se almacenan las preguntas
 
-    private int[] valores = new int[3];
+    private int[] valores = new int[3]; //
 
     /**
      * 0: Rondas
@@ -25,7 +25,7 @@ public class IntroducirDatosTemporizador extends AppCompatActivity {
      * 2: Tiempo Descanso
      */
 
-    short contador = 0;
+    short contador = 0;     //Para saber el numero de pregunta
 
     Button validar;
 
@@ -75,6 +75,8 @@ public class IntroducirDatosTemporizador extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //comprovar que el texto no esta vacio y es mayor que cero
+
                 if (false == String.valueOf(texto.getText()).isEmpty() && Integer.valueOf(String.valueOf(texto.getText())) > 0) {
 
                     switch (contador) {
@@ -117,7 +119,7 @@ public class IntroducirDatosTemporizador extends AppCompatActivity {
 
         Intent paso = new Intent(v.getContext(), Contador.class);
 
-        paso.putExtra("p_valores", valores);
+        paso.putExtra("p_valores", valores); //Añadir el array al valor
 
         startActivity(paso);
 

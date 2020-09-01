@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,9 +19,11 @@ public class Contador extends AppCompatActivity {
 
     public TextView textoTemporizador, textoTemporizadorDescanso, textoRonda;
 
-    private int numeroRonda = 1, segundos, numeroRondas, segundosDescanso;
+    private int numeroRonda = 1;
 
-    int[] parametros;
+    private int[] parametros;
+
+    private ProgressBar barraDeporte, barraDescanso;
 
     private MediaPlayer sonidoFinDeporte, sonidoFinDescanso; // Crear el Media Player
 
@@ -34,8 +37,6 @@ public class Contador extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contodor);
 
-
-
         getUI();
 
         asignarMusica();
@@ -44,8 +45,6 @@ public class Contador extends AppCompatActivity {
 
         parametros = getIntent().getIntArrayExtra("p_valores");
 
-        asignarVariables(parametros);
-
         prepararPantalla();
 
         prepararTemporizadores();
@@ -53,7 +52,6 @@ public class Contador extends AppCompatActivity {
         sonidoFinDescanso.start();
 
         contar.start();
-
 
     }
 
@@ -67,7 +65,9 @@ public class Contador extends AppCompatActivity {
 
         volver = findViewById(R.id.botonRetroceder);
 
+        barraDeporte = findViewById(R.id.barraProgresoSegundos);
 
+        barraDescanso = findViewById(R.id.barraProgresoSegundosDescansos);
     }
 
     // frase de las Rondas{Ronda 2/4}
@@ -76,7 +76,7 @@ public class Contador extends AppCompatActivity {
 
         String frase;
 
-        frase = getString(R.string.ronda) + " " + String.valueOf(numeroRonda) + "/" + String.valueOf(numeroRondas);
+        frase = getString(R.string.ronda) + " " + numeroRonda + "/" + parametros[0];
 
         return frase;
 
@@ -94,7 +94,7 @@ public class Contador extends AppCompatActivity {
 
     private void activarTemporizadorSegundos() {
 
-        long valor = segundos * 1000;
+        long valor = parametros[1] * 1000;
 
 
         contar = new CountDownTimer(valor, 1000) {
@@ -103,6 +103,8 @@ public class Contador extends AppCompatActivity {
 
                 long tiempo = l / 1000;
 
+                actualizaBarra(barraDeporte,parametros[1],tiempo);
+
                 textoTemporizador.setText(String.valueOf(tiempo));
 
             }
@@ -110,7 +112,7 @@ public class Contador extends AppCompatActivity {
             @Override
             public void onFinish() {
 
-                textoTemporizador.setText(String.valueOf(segundos));
+                textoTemporizador.setText(String.valueOf(parametros[1]));
 
                 sonidoFinDeporte.start();
 
@@ -128,13 +130,15 @@ public class Contador extends AppCompatActivity {
 
     private void activarTemporizadorDescanso() {
 
-        long valor = segundosDescanso * 1000;
+        final long valor = parametros[2] * 1000;
 
          contarDescanso = new CountDownTimer(valor, 1000) {
             @Override
             public void onTick(long l) {
 
                 long tiempo = l / 1000;
+
+                actualizaBarra(barraDescanso,parametros[2],tiempo);
 
                 textoTemporizadorDescanso.setText(String.valueOf(tiempo));
 
@@ -143,11 +147,7 @@ public class Contador extends AppCompatActivity {
             @Override
             public void onFinish() {
 
-
-
-                if (numeroRonda == numeroRondas) {
-
-
+                if (numeroRonda == parametros[0]) {
 
                     Toast.makeText(Contador.this, getString(R.string.tiempoFin),Toast.LENGTH_LONG).show();
 
@@ -158,14 +158,11 @@ public class Contador extends AppCompatActivity {
                     startActivity(intent);
 
                 }else{
-                    textoTemporizadorDescanso.setText(String.valueOf(segundosDescanso));
-
+                    textoTemporizadorDescanso.setText(String.valueOf(parametros[2]));
 
                     numeroRonda++;
 
-                    String frase = hacerFraseRondas();
-
-                    textoRonda.setText(String.valueOf(frase));
+                    textoRonda.setText(String.valueOf(hacerFraseRondas()));
 
                     sonidoFinDescanso.start();
 
@@ -182,27 +179,16 @@ public class Contador extends AppCompatActivity {
 
     }
 
-    // funacijon para asignar a las variables las casillas del array
-
-    private void asignarVariables(int[] array){
-
-        numeroRondas = array[0];
-
-        segundos = array[1];
-
-        segundosDescanso = array[2];
-
-    }
 
     // función para asignar al principio todos los valore
 
     private void prepararPantalla() {
 
-        textoTemporizador.setText(String.valueOf(segundos));
+        textoTemporizador.setText(String.valueOf(parametros[1]));
 
-        textoTemporizadorDescanso.setText(String.valueOf(segundosDescanso));
+        textoTemporizadorDescanso.setText(String.valueOf(parametros[2]));
 
-        textoRonda.setText("Ronda 1/" + String.valueOf(numeroRondas));
+        textoRonda.setText(getString(R.string.Ronda1) + (parametros[0]));
 
     }
 
@@ -231,6 +217,11 @@ public class Contador extends AppCompatActivity {
 
         activarTemporizadorDescanso();
 
+    }
+
+    private void actualizaBarra(ProgressBar barra, int p_segundos, long p_tiempo ){
+
+        barra.setProgress((int) (100 * p_tiempo / p_segundos ));
     }
 
 }

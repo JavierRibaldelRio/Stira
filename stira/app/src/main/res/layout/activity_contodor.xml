@@ -17,7 +17,7 @@
         android:layout_height="0dp"
         android:layout_margin="10dp"
 
-        android:layout_weight="3"
+        android:layout_weight="2"
         android:orientation="horizontal"
 
         android:padding="5dp">
@@ -51,32 +51,63 @@
             android:textSize="50sp" />
 
 
+
+
     </LinearLayout>
 
-    <ImageButton
-        android:layout_width="150dp"
+    <ProgressBar
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
 
-        android:src="@drawable/retrocederblanco"
+        android:id="@+id/barraProgresoSegundos"
+        android:progressTint="@color/rojo"
+        android:layout_margin="10dp"
 
-        android:scaleType="center"
+        android:layout_weight="1"
 
+        android:progress="50">
+
+    </ProgressBar>
+
+    <ImageButton
         android:id="@+id/botonRetroceder"
+        android:layout_width="180dp"
+
+        android:layout_height="0dp"
 
         android:layout_gravity="center"
 
+        android:layout_weight="3"
+
         android:background="@color/naranja"
 
-        android:layout_weight="3">
+        android:scaleType="center"
+
+        android:src="@drawable/retrocederblanco">
 
     </ImageButton>
 
+    <ProgressBar
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:id="@+id/barraProgresoSegundosDescansos"
+        android:progressTint="@color/verde"
+        android:layout_margin="10dp"
+
+        android:layout_weight="1"
+
+        android:progress="50">
+
+    </ProgressBar>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"
-        android:layout_weight="3"
+        android:layout_weight="2"
 
         android:orientation="horizontal"
 
