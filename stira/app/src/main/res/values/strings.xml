@@ -28,4 +28,10 @@
 
     <string name="Ronda1">Ronda 1/</string>
 
+    <string name="conDescanso">Con Descanso</string>
+
+    <string name="sinDescanso">Sin Descanso</string>
+
+    <string name="inserteSegundos">Inserte el tiempo del\n ejercicio</string>
+
 </resources>

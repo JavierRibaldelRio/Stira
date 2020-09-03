@@ -82,9 +82,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent cambioPantalla = new Intent(view.getContext(), IntroducirDatosTemporizador.class);
-
-                startActivity(cambioPantalla);
+                startActivity(new Intent(view.getContext(), ElegirEntreTipos.class));
 
             }
 

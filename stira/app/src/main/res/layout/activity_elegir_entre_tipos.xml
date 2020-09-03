@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/fondo"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/conDescanso"
+
+        android:id="@+id/con"
+        style="@style/botonesInicio"
+
+        />
+
+    <!--Lineat Layout pra dejar espacio entre los botones-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sinDescanso"
+        style="@style/botonesInicio"
+
+        android:id="@+id/sin"
+
+        />
+
+
+</LinearLayout>

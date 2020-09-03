@@ -40,6 +40,9 @@
             android:name=".IntroducirDatosTemporizador"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".ElegirEntreTipos" android:screenOrientation="portrait"/>
+
+
 
 
 

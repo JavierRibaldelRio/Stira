@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo"
+
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:layout_weight="1"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:layout_weight="1"
+
+        android:inputType="number"
+
+        android:maxLength="2"
+
+        android:id="@+id/textoAsignar"
+
+        android:hint="@string/inserteSegundos"
+
+        android:textColor="@color/naranja"
+
+        android:textColorLink="@color/naranja"
+        android:textCursorDrawable="@color/naranja"
+        android:outlineAmbientShadowColor="@color/naranja"
+        android:textAlignment="center"
+        android:backgroundTint="@color/naranja"
+
+        android:textColorHint="@color/blanco"
+
+        android:textColorHighlight="@color/naranja"
+        android:textSize="40sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/Asignar"
+
+        android:layout_margin="20dp"
+
+        android:layout_weight="1"
+
+        android:background="@color/naranja"
+
+        android:id="@+id/validar2"
+
+        android:textSize="40sp"
+
+        android:textColor="@color/blanco"
+
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
