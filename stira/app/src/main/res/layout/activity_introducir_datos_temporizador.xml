@@ -11,6 +11,7 @@
         android:layout_height="0dp"
 
         android:layout_weight="1"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -31,12 +32,12 @@
         android:textCursorDrawable="@color/naranja"
         android:outlineAmbientShadowColor="@color/naranja"
         android:textAlignment="center"
-android:backgroundTint="@color/naranja"
+        android:backgroundTint="@color/naranja"
 
         android:textColorHint="@color/blanco"
 
-    android:textColorHighlight="@color/naranja"
-        android:textSize="40sp"></EditText>
+        android:textColorHighlight="@color/naranja"
+        android:textSize="40sp" />
 
     <Button
         android:layout_width="wrap_content"

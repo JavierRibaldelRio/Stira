@@ -31,13 +31,13 @@
         android:textColorLink="@color/naranja"
         android:textCursorDrawable="@color/naranja"
         android:outlineAmbientShadowColor="@color/naranja"
-        android:textAlignment="center"
+        android:textAlignment= "center"
         android:backgroundTint="@color/naranja"
 
         android:textColorHint="@color/blanco"
 
         android:textColorHighlight="@color/naranja"
-        android:textSize="40sp" />
+        android:textSize="30sp" />
 
     <Button
         android:layout_width="wrap_content"

@@ -22,7 +22,7 @@
 
     <string name="tiempoFin">El tiempo se ha acabado.</string>
 
-    <string name="inserteValor">Inserte un valor.</string>
+    <string name="inserteValor">Inserte un valor valido.</string>
 
     <string name="ultimo">Ultima Vez</string>
 
@@ -32,6 +32,6 @@
 
     <string name="sinDescanso">Sin Descanso</string>
 
-    <string name="inserteSegundos">Inserte el tiempo del\n ejercicio</string>
+    <string name="inserteSegundos">Inserte el tiempo\n del\n ejercicio</string>
 
 </resources>
