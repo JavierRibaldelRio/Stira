@@ -14,7 +14,7 @@ public class IntroducirDatosSinDescansos extends AppCompatActivity {
 
     Button asignar;
 
-    EditText texto;
+    EditText texto2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class IntroducirDatosSinDescansos extends AppCompatActivity {
 
         asignar = findViewById(R.id.validar2);
 
-        texto = findViewById(R.id.textoAsignar);
+        texto2 = findViewById(R.id.textoAsignar);
 
     }
 
@@ -41,16 +41,18 @@ public class IntroducirDatosSinDescansos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Toast.makeText(IntroducirDatosSinDescansos.this, getString(R.string.inserteValor), Toast.LENGTH_LONG).show();
 
-                if (String.valueOf(asignar.getText()).isEmpty()) {
 
-                    Toast.makeText(IntroducirDatosSinDescansos.this, getString(R.string.inserteValor), Toast.LENGTH_SHORT).show();
+                if (String.valueOf(texto2.getText()).isEmpty()) {
+
+                    Toast.makeText(IntroducirDatosSinDescansos.this, getString(R.string.inserteValor), Toast.LENGTH_LONG).show();
 
 
                 } else {
                 // cambio de pantalla
 
-                    int ints = Integer.valueOf(String.valueOf(texto.getText()));
+                    int ints = Integer.valueOf(String.valueOf(texto2.getText()));
 
                     Intent cambioPantalla = new Intent(view.getContext(), ContadorSinDescanso.class);
                     cambioPantalla.putExtra("g",ints);
