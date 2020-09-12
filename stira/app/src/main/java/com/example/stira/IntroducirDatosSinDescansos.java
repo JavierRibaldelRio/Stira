@@ -41,8 +41,6 @@ public class IntroducirDatosSinDescansos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(IntroducirDatosSinDescansos.this, getString(R.string.inserteValor), Toast.LENGTH_LONG).show();
-
 
                 if (String.valueOf(texto2.getText()).isEmpty()) {
 
@@ -55,7 +53,7 @@ public class IntroducirDatosSinDescansos extends AppCompatActivity {
                     int ints = Integer.valueOf(String.valueOf(texto2.getText()));
 
                     Intent cambioPantalla = new Intent(view.getContext(), ContadorSinDescanso.class);
-                    cambioPantalla.putExtra("g",ints);
+                    cambioPantalla.putExtra("p_valores",ints);
                     startActivity(cambioPantalla);
 
 

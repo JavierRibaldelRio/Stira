@@ -1,6 +1,7 @@
 package com.example.stira;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -17,8 +18,6 @@ public class ContadorSinDescanso extends AppCompatActivity {
     ProgressBar barra;
 
     int segundos;
-
-    boolean primeraVez = true;
 
     boolean pausado = false;
 
@@ -39,18 +38,15 @@ public class ContadorSinDescanso extends AppCompatActivity {
 
         activarEscuchadores();
 
-        Toast.makeText(ContadorSinDescanso.this,String.valueOf(segundos),Toast.LENGTH_SHORT).show();
-
-        reloj = prepararTemporizador();
+        reloj = prepararTemporizador(segundos);
 
         reloj.start();
-
 
     }
 
     private int sacarTiempo(){
 
-       return getIntent().getIntExtra("g", -1);
+       return getIntent().getIntExtra("p_valores", -1);
     }
 
     //Asignar los objetos a sus variables
@@ -90,7 +86,7 @@ public class ContadorSinDescanso extends AppCompatActivity {
 
                     reloj.cancel();
 
-                    reloj = hacerTemporizadorPause(Integer.valueOf(String.valueOf(texto.getText())));
+                    reloj = prepararTemporizador(Integer.valueOf(String.valueOf(texto.getText())));
 
                     //cambiar imagen
                     pause.setImageResource(R.drawable.play);
@@ -107,42 +103,13 @@ public class ContadorSinDescanso extends AppCompatActivity {
 
     }
 
-    private CountDownTimer prepararTemporizador(){
-
-        long valor = segundos * 1000;
-
-        return new CountDownTimer(valor,1000) {
-            @Override
-            public void onTick(long l) {
-
-                long tiempo = l / 1000;
-
-                texto.setText(String.valueOf(tiempo));
-
-                actualizaBarra(barra,segundos,tiempo);
-
-
-
-            }
-
-            @Override
-            public void onFinish() {
-
-                Toast.makeText(ContadorSinDescanso.this, getString(R.string.tiempoFin),Toast.LENGTH_LONG).show();
-
-
-
-            }
-        };
-
-    }
 
     private void actualizaBarra(ProgressBar p_barra, int p_segundos, long p_tiempo ){
 
         p_barra.setProgress((int) (100 * p_tiempo / p_segundos ));
     }
 
-    private CountDownTimer hacerTemporizadorPause(final int segundosRestantes){
+    private CountDownTimer prepararTemporizador(final int segundosRestantes){
 
         return new CountDownTimer((segundosRestantes * 1000),1000) {
             @Override
@@ -159,10 +126,29 @@ public class ContadorSinDescanso extends AppCompatActivity {
 
                 Toast.makeText(ContadorSinDescanso.this, getString(R.string.tiempoFin),Toast.LENGTH_LONG).show();
 
+                sonidoFin().start();
+
+                Intent intent = new Intent(ContadorSinDescanso.this, MainActivity.class);
+
+                intent.putExtra("ultimosIntroducidos",combertirEnArray(segundos));
+
+                startActivity(intent);
+
             }
         };
 
 
+    }
+
+    private int[] combertirEnArray(int variable){
+
+        int[] array = {variable,-1,-1};
+
+        return array;
+    }
+
+    private MediaPlayer sonidoFin(){
+        return MediaPlayer.create(this,R.raw.sonido_fin_deporte);
     }
 
 
