@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:background="@color/fondo"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+
+       android:id="@+id/textoTemporizadorDescanso"
+
+       style="@style/textoTemporizador"
+
+       android:text="00"/>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+
+        android:progressTint="@color/azul"
+
+        android:id="@+id/barra"
+
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+
+        android:progress="100" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="85dp"
+        android:src="@drawable/pause"
+
+        android:id="@+id/pauseplay"
+
+        android:background="@color/naranja"
+        android:layout_marginBottom="50dp"
+        android:scaleType="centerCrop" />
+
+    <ImageButton
+        android:src="@drawable/retrocederblanco"
+        android:background="@color/naranja"
+        android:layout_width="80dp"
+        android:id="@+id/atras"
+        android:layout_height="85dp"
+
+
+         />
+
+
+
+
+</LinearLayout>

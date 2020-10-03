@@ -40,6 +40,11 @@
             android:name=".IntroducirDatosTemporizador"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".ElegirEntreTipos" android:screenOrientation="portrait"/>
+
+        <activity android:name=".IntroducirDatosSinDescansos" android:screenOrientation="portrait"/>
+
+        <activity android:name=".ContadorSinDescanso" android:screenOrientation="portrait"/>
 
 
 

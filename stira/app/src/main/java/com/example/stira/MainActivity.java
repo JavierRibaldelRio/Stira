@@ -1,6 +1,7 @@
 package com.example.stira;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,8 +13,6 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private Button temporizador, ultimaVez;
-
-    private int[] ultimosDatos = {12,20,5};
 
     Context contexto = this;
 
@@ -33,15 +32,13 @@ public class MainActivity extends AppCompatActivity {
         activarEscuchadores();
 
 
-        if (getIntent().getIntArrayExtra("ultimosIntroducidos") == null ) { //Comprobar si  hay datos de una ultima vez
+        if (getIntent().getIntArrayExtra("ultimosIntroducidos") == null) { //Comprobar si  hay datos de una ultima vez
 
 
             //ocultar el boton de la ultima vez
             ultimaVez.setVisibility(View.GONE);
 
-        }
-
-        else{
+        } else {
 
             //Guardar los valores
             guardarUltimosValores(getIntent().getIntArrayExtra("ultimosIntroducidos"));
@@ -82,9 +79,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent cambioPantalla = new Intent(view.getContext(), IntroducirDatosTemporizador.class);
-
-                startActivity(cambioPantalla);
+                startActivity(new Intent(view.getContext(), ElegirEntreTipos.class));
 
             }
 
@@ -94,11 +89,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(view.getContext(), Contador.class);
+                if (sacarUltimosDatos()[1] == -1) {
 
-                intent.putExtra("p_valores", sacarUltimosDatos()); // enviar Array
+                    Intent intent = new Intent(view.getContext(), ContadorSinDescanso.class);
 
-                startActivity(intent);
+                    intent.putExtra("p_valores", sacarUltimosDatos()[0]); // enviar Array
+
+                    startActivity(intent);
+
+
+                } else {
+
+                    Intent intent = new Intent(view.getContext(), Contador.class);
+
+                    intent.putExtra("p_valores", sacarUltimosDatos()); // enviar Array
+
+                    startActivity(intent);
+                }
 
             }
         });
