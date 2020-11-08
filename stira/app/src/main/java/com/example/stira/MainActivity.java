@@ -6,8 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Debug;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,17 +34,18 @@ public class MainActivity extends AppCompatActivity {
         //Hacer que los botones funcionen
         activarEscuchadores();
 
+        Log.i("Imprimir datos:", String.valueOf(sacarUltimosDatos()[1]));
 
-        if (getIntent().getIntArrayExtra("ultimosIntroducidos") == null) { //Comprobar si  hay datos de una ultima vez
+        if (getIntent().getIntArrayExtra("ultimosIntroducidos") != null) { //Comprobar si  hay datos de una ultima vez
 
+            guardarUltimosValores(getIntent().getIntArrayExtra("ultimosIntroducidos"));
 
             //ocultar el boton de la ultima vez
-            ultimaVez.setVisibility(View.GONE);
+
 
         } else {
 
-            //Guardar los valores
-            guardarUltimosValores(getIntent().getIntArrayExtra("ultimosIntroducidos"));
+
 
         }
 
@@ -98,7 +102,11 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
 
-                } else {
+                }
+                if(sacarUltimosDatos()[0] == -1){
+                    Toast.makeText(MainActivity.this,"No hay ningún temporizador guardado.", Toast.LENGTH_LONG);
+                }
+                else {
 
                     Intent intent = new Intent(view.getContext(), Contador.class);
 

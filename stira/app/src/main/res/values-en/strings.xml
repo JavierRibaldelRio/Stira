@@ -1,0 +1,37 @@
+<resources>
+
+    <string name="app_name">Stira!</string>
+
+    <string name="ronda"> Round</string>
+
+    <string name="ejercicio">Exercice: </string>
+
+    <string name="descanso">Rest: </string>
+
+    <string name="temporizador">Timer</string>20209
+
+    <string name="registro">Register</string>
+
+    <string name="Asignar">Assing</string>
+
+    <string name="repeticiones">Insert\nnumber of\n repetitions</string>
+
+    <string name="ejer">Time</string>
+
+    <string name="desc">Time of rest </string>
+
+    <string name="tiempoFin">Time Out.</string>
+
+    <string name="inserteValor">Insert one valid value.</string>
+
+    <string name="ultimo">Last time</string>
+
+    <string name="Ronda1">Round 1/</string>
+
+    <string name="conDescanso">With Rest</string>
+
+    <string name="sinDescanso">Without Rest</string>
+
+    <string name="inserteSegundos">Insert time\n of\n exercice</string>
+
+</resources>

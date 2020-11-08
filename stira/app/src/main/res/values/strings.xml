@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">Stira!</string>
+    <string name="app_name" translatable="false">Stira!</string>
 
     <string name="ronda"> Ronda</string>
 
@@ -8,7 +8,7 @@
 
     <string name="descanso">Descanso: </string>
 
-    <string name="temporizador">Reloj</string>
+    <string name="temporizador">Reloj</string>2020
 
     <string name="registro">Registro</string>
 
