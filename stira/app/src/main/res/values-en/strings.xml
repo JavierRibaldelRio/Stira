@@ -4,15 +4,15 @@
 
     <string name="ronda"> Round</string>
 
-    <string name="ejercicio">Exercice: </string>
+    <string name="ejercicio">Exercise: </string>
 
     <string name="descanso">Rest: </string>
 
-    <string name="temporizador">Timer</string>20209
+    <string name="temporizador">Timer</string>
 
     <string name="registro">Register</string>
 
-    <string name="Asignar">Assing</string>
+    <string name="Asignar">Assign</string>
 
     <string name="repeticiones">Insert\nnumber of\n repetitions</string>
 
@@ -32,6 +32,6 @@
 
     <string name="sinDescanso">Without Rest</string>
 
-    <string name="inserteSegundos">Insert time\n of\n exercice</string>
+    <string name="inserteSegundos">Insert time\n of\nexercise</string>
 
 </resources>
