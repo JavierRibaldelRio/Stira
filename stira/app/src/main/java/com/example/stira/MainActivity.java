@@ -93,24 +93,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (sacarUltimosDatos()[1] == -1) {
+                int[] ultimosDatos = sacarUltimosDatos();
 
-                    Intent intent = new Intent(view.getContext(), ContadorSinDescanso.class);
+                //Sacar
+                if (ultimosDatos[1] == -2) {
 
-                    intent.putExtra("p_valores", sacarUltimosDatos()[0]); // enviar Array
-
-                    startActivity(intent);
-
-
+                    Intent cambioPantalla = new Intent(view.getContext(), ContadorSinDescanso.class);
+                    cambioPantalla.putExtra("p_valores",Integer.valueOf(ultimosDatos[0]));
+                    startActivity(cambioPantalla);
                 }
-                if(sacarUltimosDatos()[0] == -1){
-                    Toast.makeText(MainActivity.this,"No hay ningún temporizador guardado.", Toast.LENGTH_LONG);
+
+                else if(ultimosDatos[0] == -1){
+
+                    Toast.makeText(MainActivity.this,"No hay ningún temporizador guardado.", Toast.LENGTH_LONG).show();
+
                 }
                 else {
 
                     Intent intent = new Intent(view.getContext(), Contador.class);
 
-                    intent.putExtra("p_valores", sacarUltimosDatos()); // enviar Array
+                    intent.putExtra("p_valores", ultimosDatos); // enviar Array
 
                     startActivity(intent);
                 }

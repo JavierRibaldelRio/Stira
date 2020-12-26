@@ -140,9 +140,11 @@ public class ContadorSinDescanso extends AppCompatActivity {
 
     }
 
+    //Función que prepara los datos para enviarlos a otras actividades
     private int[] combertirEnArray(int variable){
 
-        int[] array = {variable,-1,-1};
+        //Crea un array con las variables, para entender que la ultima vez a sido encontador sin descanso le paso el valor de -2
+        int[] array = {variable,-2,-2};
 
         return array;
     }
