@@ -13,7 +13,7 @@
         android:layout_weight="1" />
 
     <EditText
-        android:id="@+id/textoAsignar"
+        android:id="@+id/textoAsignar2"
         android:layout_width="match_parent"
 
         android:layout_height="0dp"
@@ -22,7 +22,7 @@
 
         android:backgroundTint="@color/naranja"
 
-        android:hint="@string/inserteSegundos"
+        android:hint="@string/repeticiones"
 
         android:inputType="number"
 
@@ -40,7 +40,7 @@
         android:textSize="30sp" />
 
     <Button
-        android:id="@+id/validar2"
+        android:id="@+id/validar3"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
 
