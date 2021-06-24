@@ -17,13 +17,17 @@ public class IntroducirDatosTemporizadorSinDescansoConRondas extends AppCompatAc
     //El texto para insertar numeros
     EditText entrada;
 
+    //Almacena los datos a pasar a el contador
+    int valores[] = new int[2];
+
     //rondas
     int rondas;
 
     //Segundos
-    float segundos;
+    int segundos;
 
-    short contador = 0;
+    //Almacena en que estado esta el programa
+    boolean repeticiones = true;
 
 
     @Override
@@ -32,30 +36,39 @@ public class IntroducirDatosTemporizadorSinDescansoConRondas extends AppCompatAc
 
         getUI();
 
-
-
     }
 
-    void getUI(){
+    void getUI() {
 
         asignar = findViewById(R.id.validar3);
 
         entrada = findViewById(R.id.textoAsignar2);
     }
 
-    void activarEscuchadores(){
+    void activarEscuchadores() {
         asignar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (false == String.valueOf(entrada.getText()).isEmpty() && Integer.valueOf(String.valueOf(entrada.getText())) > 0) {
 
-                switch (contador){
-                    case 0:
-                        rondas = EditText.
+                    if (repeticiones) {
+
+                        rondas = Integer.valueOf(String.valueOf(entrada.getText()));
+
+                        repeticiones = false;
+
+                        asignar.setText(getString(R.string.inserteSegundos));
+
+                    } else {
+
+                        segundos = Integer.valueOf(String.valueOf(entrada.getText()));
+
+                    }
+                }else {
+
+
 
                 }
-
-
-
 
 
             }
